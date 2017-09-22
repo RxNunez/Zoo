@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     <h1>Zoo Tracker for {{month}}/{{day}}/{{year}}</h1>
     <h3>{{currentFocus}}</h3>
     <ul>
-       <li (click)="isDone(currentSpecies)" *ngFor="let currentSpecies of species">{{currentSpecies.description}} <button (click)="editSpecies()">Edit!</button></li></li>
+       <li [class]="caretakersColor(currentSpecies)" (click)="isDone(currentSpecies)" *ngFor="let currentSpecies of species">{{currentSpecies.description}} <button (click)="editSpecies()">Edit!</button></li></li>
      </ul>
   </div>
   `
@@ -20,9 +20,9 @@ export class AppComponent {
    day: number = this.currentTime.getDate();
    year: number = this.currentTime.getFullYear();
    Specie: Species[] = [
-   new Species("Arctic Fox"),
-   new Species("Ocelot"),
-   new Species("Northwest Black Tailed Deer")
+   new Species("Arctic Fox", 2),
+   new Species("Ocelot", 4),
+   new Species("Northwest Black Tailed Deer", 8)
    ];
 
    editSpecies() {
@@ -35,10 +35,19 @@ export class AppComponent {
       alert("This Species is not done. Better research more!");
     }
   }
+  caretakersColor(currentSpecies){
+    if (currentSpecies.caretakers === 2){
+      return "bg-danger";
+    } else if (currentSpecies.caretakers === 4) {
+      return  "bg-warning";
+    } else {
+      return "bg-info";
+    }
+  }
 
   }
   export class Species {
   public done: boolean = false;
-  constructor(public description: string) { }
+  constructor(public description: string, , public caretakers: number) { }
 
 }
