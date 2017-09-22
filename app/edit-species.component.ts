@@ -5,18 +5,18 @@ import { Species } from './species.model';
   selector: 'edit-species',
   template: `
     <div>
-      <div *ngIf="selectedSpecies">
-        <h3>{{selectedSpecies.description}}</h3>
-        <p>Species Complete? {{selectedSpecies.done}}</p>
+      <div *ngIf="childSelectedSpecies">
+        <h3>{{childSelectedSpecies.description}}</h3>
+        <p>Species Complete? {{childSelectedSpecies.done}}</p>
         <hr>
         <h3>Edit Species</h3>
         <label>Enter Species Description:</label>
-        <input [(ngModel)]="selectedSpecies.description">
+        <input [(ngModel)]="childSelectedSpecies.description">
         <label>Enter Species Caretakers (2-8):</label>
         <br>
-        <input type="radio" [(ngModel)]="selectedSpecies.caretakers" [value]="2">1 (Low Caretakers)<br>
-        <input type="radio" [(ngModel)]="selectedSpecies.caretakers" [value]="4">2 (Medium Caretakers)<br>
-        <input type="radio" [(ngModel)]="selectedSpecies.caretakers" [value]="8">3 (High Caretakers)
+        <input type="radio" [(ngModel)]="childSelectedSpecies.caretakers" [value]="2">1 (Two Caretakers)<br>
+        <input type="radio" [(ngModel)]="childSelectedSpecies.caretakers" [value]="4">2 (Four Caretakers)<br>
+        <input type="radio" [(ngModel)]="childSelectedSpecies.caretakers" [value]="8">3 (Eight Caretakers)
         <button (click)="doneButtonClicked()">Done</button>
      </div>
     </div>

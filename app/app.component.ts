@@ -7,8 +7,7 @@ import { Species } from './species.model';
     <div class="container">
       <h1>Zoo Tracker for {{month}}/{{day}}/{{year}}</h1>
       <h3>{{currentFocus}}</h3>
-
-      <species-list [childSpeciesList]="masterSpeciesList" (clickSender)="editSpecies($event)></species-list>
+      <species-list [childSpeciesList]="masterSpeciesList" (clickSender)="editSpecies($event)"></species-list>
        <hr>
       <edit-species [childSelectedSpecies]="selectedSpecies" (doneButtonClickedSender)="finishedEditing()"></edit-species>
       <new-species (newSpeciesSender)="addSpecies($event)"></new-species>
@@ -38,7 +37,7 @@ export class AppComponent {
       this.selectedSpecies = null;
     }
 
-    addSpecies(newSpeciesFromChild: Task) {
+    addSpecies(newSpeciesFromChild: Species) {
     this.masterSpeciesList.push(newSpeciesFromChild);
   }
 
