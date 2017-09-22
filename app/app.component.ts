@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
     <h1>Zoo Tracker for {{month}}/{{day}}/{{year}}</h1>
     <h3>{{currentFocus}}</h3>
     <ul>
-       <li *ngFor="let currentSpecies of species">{{currentSpecies.description}}</li>
+       <li (click)="isDone(currentSpecies)" *ngFor="let currentSpecies of species">{{currentSpecies.description}} <button (click)="editSpecies()">Edit!</button></li></li>
      </ul>
   </div>
   `
@@ -24,7 +24,18 @@ export class AppComponent {
    new Species("Ocelot"),
    new Species("Northwest Black Tailed Deer")
    ];
-    description:
+
+   editSpecies() {
+   alert("You just requested to edit a Species!");
+ }
+ isDone(clickedSpecies: Species) {
+    if(clickedSpecies.done === true) {
+      alert("This Species is done!");
+    } else {
+      alert("This Species is not done. Better research more!");
+    }
+  }
+
   }
   export class Species {
   public done: boolean = false;
