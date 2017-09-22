@@ -1,0 +1,17 @@
+{
+  "name": "TS-Week3",
+  "description": "",
+  "main": "",
+  "authors": [
+    "RxNunez <Nunez.ryan@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
