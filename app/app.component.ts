@@ -7,12 +7,14 @@ import { Component } from '@angular/core';
     <h1>Zoo Tracker for {{month}}/{{day}}/{{year}}</h1>
     <h3>{{currentFocus}}</h3>
     <ul>
-       <li [class]="caretakersColor(currentSpecies)" (click)="isDone(currentSpecies)" *ngFor="let currentSpecies of species">{{currentSpecies.description}} <button (click)="editSpecies()">Edit!</button></li></li>
+       <li [class]="caretakersColor(currentSpecies)" (click)="isDone(currentSpecies)" *ngFor="let currentSpecies of species">{{currentSpecies.description}} <button (click)="editSpecies(currentSpecies)">Edit!</button></li></li>
      </ul>
-     <hr>Species
-        <div>
+     <hr>
+     <div>
+        <div *ngIf="selectedSpecies">
           <h3>{{selectedSpecies.description}}</h3>
           <p>Species Complete? {{selectedSpecies.done}}</p>
+          <hr>
           <h3>Edit Species</h3>
           <label>Enter Species Description:</label>
           <input [(ngModel)]="selectedSpecies.description">
@@ -21,7 +23,9 @@ import { Component } from '@angular/core';
           <input type="radio" [(ngModel)]="selectedSpecies.caretakers" [value]="2">1 (Low Caretakers)<br>
           <input type="radio" [(ngModel)]="selectedSpecies.caretakers" [value]="4">2 (Medium Caretakers)<br>
           <input type="radio" [(ngModel)]="selectedSpecies.caretakers" [value]="8">3 (High Caretakers)
+          <button (click)="finishedEditing()">Done</button>
        </div>
+      </div>
   </div>
   `
 })
@@ -37,27 +41,30 @@ export class AppComponent {
    new Species("Ocelot", 4),
    new Species("Northwest Black Tailed Deer", 8)
    ];
-   selectedSpecies: Species = this.species[0];
+   selectedSpecies = null;
 
-   editSpecies() {
-   alert("You just requested to edit a Species!");
- }
- isDone(clickedSpecies: Species) {
-    if(clickedSpecies.done === true) {
-      alert("This Species is done!");
-    } else {
-      alert("This Species is not done. Better research more!");
+   editSpecies(clickedSpecies) {
+   this.selectedSpecies = clickedSpecies;
+   }
+   isDone(clickedSpecies: Species) {
+      if(clickedSpecies.done === true) {
+        alert("This Species is done!");
+      } else {
+        alert("This Species is not done. Better research more!");
+      }
     }
-  }
-  caretakersColor(currentSpecies){
-    if (currentSpecies.caretakers === 2){
-      return "bg-danger";
-    } else if (currentSpecies.caretakers === 4) {
-      return  "bg-warning";
-    } else {
-      return "bg-info";
+    finishedEditing() {
+      this.selectedTask = null;
     }
-  }
+    caretakersColor(currentSpecies){
+      if (currentSpecies.caretakers === 2){
+        return "bg-danger";
+      } else if (currentSpecies.caretakers === 4) {
+        return  "bg-warning";
+      } else {
+        return "bg-info";
+      }
+    }
 
   }
   export class Species {
