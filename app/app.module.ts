@@ -4,6 +4,7 @@ import { AppComponent }   from './app.component';
 import { FormsModule }  from '@angular/forms';
 import { SpeciesListComponent }  from './species-list.component';
 import { EditSpeciesComponent } from './edit-species.component';
+import { NewSpeciesComponent } from './new-species.component';
 
 
 @NgModule({
@@ -11,8 +12,8 @@ import { EditSpeciesComponent } from './edit-species.component';
             FormsModule ],
   declarations: [ AppComponent,
                   SpeciesListComponent,
-                  EditTaskComponent,
-                                      ],
+                  EditSpeciesComponent,
+                  NewSpeciesComponent],
   bootstrap:    [ AppComponent ]
 })
 

@@ -11,6 +11,7 @@ import { Species } from './species.model';
       <species-list [childSpeciesList]="masterSpeciesList" (clickSender)="editSpecies($event)></species-list>
        <hr>
       <edit-species [childSelectedSpecies]="selectedSpecies" (doneButtonClickedSender)="finishedEditing()"></edit-species>
+      <new-species (newSpeciesSender)="addSpecies($event)"></new-species>
     </div>
   `
 })
@@ -36,5 +37,9 @@ export class AppComponent {
     finishedEditing() {
       this.selectedSpecies = null;
     }
+
+    addSpecies(newSpeciesFromChild: Task) {
+    this.masterSpeciesList.push(newSpeciesFromChild);
+  }
 
   }

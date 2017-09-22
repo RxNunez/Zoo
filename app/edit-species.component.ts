@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Species } from './species.model';
 
 @Component({
-  selector: 'edit-task',
+  selector: 'edit-species',
   template: `
     <div>
       <div *ngIf="selectedSpecies">
