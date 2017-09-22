@@ -9,6 +9,19 @@ import { Component } from '@angular/core';
     <ul>
        <li [class]="caretakersColor(currentSpecies)" (click)="isDone(currentSpecies)" *ngFor="let currentSpecies of species">{{currentSpecies.description}} <button (click)="editSpecies()">Edit!</button></li></li>
      </ul>
+     <hr>Species
+        <div>
+          <h3>{{selectedSpecies.description}}</h3>
+          <p>Species Complete? {{selectedSpecies.done}}</p>
+          <h3>Edit Species</h3>
+          <label>Enter Species Description:</label>
+          <input [(ngModel)]="selectedSpecies.description">
+          <label>Enter Species Caretakers (2-8):</label>
+          <br>
+          <input type="radio" [(ngModel)]="selectedSpecies.caretakers" [value]="2">1 (Low Caretakers)<br>
+          <input type="radio" [(ngModel)]="selectedSpecies.caretakers" [value]="4">2 (Medium Caretakers)<br>
+          <input type="radio" [(ngModel)]="selectedSpecies.caretakers" [value]="8">3 (High Caretakers)
+       </div>
   </div>
   `
 })
@@ -24,6 +37,7 @@ export class AppComponent {
    new Species("Ocelot", 4),
    new Species("Northwest Black Tailed Deer", 8)
    ];
+   selectedSpecies: Species = this.species[0];
 
    editSpecies() {
    alert("You just requested to edit a Species!");
