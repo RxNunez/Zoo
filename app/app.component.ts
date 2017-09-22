@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Species } from './species.model';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,9 @@ import { Component } from '@angular/core';
   <div class="container">
     <h1>Zoo Tracker for {{month}}/{{day}}/{{year}}</h1>
     <h3>{{currentFocus}}</h3>
-    <ul>
-       <li [class]="caretakersColor(currentSpecies)" (click)="isDone(currentSpecies)" *ngFor="let currentSpecies of species">{{currentSpecies.description}} <button (click)="editSpecies(currentSpecies)">Edit!</button></li></li>
-     </ul>
+
+    <species-list [childSpeciesList]="masterSpeciesList" (clickSender)="editSpecies($event)></species-list>
+
      <hr>
      <div>
         <div *ngIf="selectedSpecies">
@@ -36,39 +37,21 @@ export class AppComponent {
   month: number = this.currentTime.getMonth() + 1;
    day: number = this.currentTime.getDate();
    year: number = this.currentTime.getFullYear();
-   Specie: Species[] = [
+   selectedSpecies = null;
+
+   masterSpecies: Species[] = [
    new Species("Arctic Fox", 2),
    new Species("Ocelot", 4),
    new Species("Northwest Black Tailed Deer", 8)
    ];
-   selectedSpecies = null;
 
    editSpecies(clickedSpecies) {
    this.selectedSpecies = clickedSpecies;
    }
-   isDone(clickedSpecies: Species) {
-      if(clickedSpecies.done === true) {
-        alert("This Species is done!");
-      } else {
-        alert("This Species is not done. Better research more!");
-      }
-    }
+
     finishedEditing() {
       this.selectedTask = null;
     }
-    caretakersColor(currentSpecies){
-      if (currentSpecies.caretakers === 2){
-        return "bg-danger";
-      } else if (currentSpecies.caretakers === 4) {
-        return  "bg-warning";
-      } else {
-        return "bg-info";
-      }
-    }
+
 
   }
-  export class Species {
-  public done: boolean = false;
-  constructor(public description: string, , public caretakers: number) { }
-
-}
