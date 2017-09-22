@@ -1,5 +1,5 @@
 {
-  "name": "TS-Week3",
+  "name": "Zoo",
   "description": "",
   "main": "",
   "authors": [
@@ -13,5 +13,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
 }
