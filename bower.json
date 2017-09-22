@@ -1,12 +1,12 @@
 {
-  "name": "Zoo",
+  "name": "zoo",
   "description": "",
   "main": "",
   "authors": [
     "RxNunez <Nunez.ryan@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/RxNunez/Zoo",
   "ignore": [
     "**/.*",
     "node_modules",
