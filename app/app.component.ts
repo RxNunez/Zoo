@@ -6,3 +6,7 @@ import { Component } from '@angular/core';
   <h1>TS-Week3</h1>
   `
 })
+
+export class AppComponent {
+
+}
