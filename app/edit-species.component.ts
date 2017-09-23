@@ -7,7 +7,6 @@ import { Species } from './species.model';
     <div>
       <div *ngIf="childSelectedSpecies">
         <h3>Name: {{childSelectedSpecies.name}}, Age:  {{childSelectedSpecies.age}}</h3>
-        <p>Species Complete? {{childSelectedSpecies.done}}</p>
         <hr>
         <h3>Edit Species</h3>
         <label>Enter Species Name:</label>

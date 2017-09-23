@@ -7,18 +7,18 @@ pure: false
 })
 
 
-export class AgePipe implements PipeTransform {
-transform(input: Species[], ageFilter) {
+export class AgesPipe implements PipeTransform {
+transform(input: Species[], desiredAges) {
   var output: Species[] = [];
 
-  if (ageFilter === "young"){
+  if (desiredAges === "youngSpecies"){
     for (var i=0; i<input.length; i++) {
       if(input[i].age < 2){
         output.push(input[i]);
       }
     }
     return output;
-  } else if (ageFilter === "mature"){
+  } else if (desiredAges === "matureSpecies"){
     for (var i=0; i<input.length; i++) {
       if(input[i].age >= 2){
         output.push(input[i]);

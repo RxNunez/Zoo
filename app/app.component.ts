@@ -39,6 +39,6 @@ export class AppComponent {
 
     addSpecies(newSpeciesFromChild: Species) {
     this.masterSpeciesList.push(newSpeciesFromChild);
-  }
+    }
 
   }
