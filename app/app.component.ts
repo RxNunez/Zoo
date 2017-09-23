@@ -24,9 +24,9 @@ export class AppComponent {
   selectedSpecies = null;
 
    masterSpeciesList: Species[] = [
-     new Species("Arctic Fox", 2),
-     new Species("Ocelot", 4),
-     new Species("Northwest Black Tailed Deer", 8)
+     new Species('Arctic Fox', 'Moon', 2, 'Carnivore', 'Northern Trail', 'Female', 'Cool shade', 'Loud Noises', 4),
+     new Species('Ocelot', 'Prince', 4, 'Carnivore', 'Tropical Rain Forest Building', 'Male', 'Laying in the sunshine', 'Toys that are not rope-based', 8),
+     new Species('Northwest Black Tailed Deer', 'Tinkerbell', 8, 'Herbivore', 'Northern Trail', 'Female', 'Delicate roots and leaves', 'Loud Noises', 2)
    ];
 
    editSpecies(clickedSpecies) {
