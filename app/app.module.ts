@@ -5,6 +5,7 @@ import { FormsModule }  from '@angular/forms';
 import { SpeciesListComponent }  from './species-list.component';
 import { EditSpeciesComponent } from './edit-species.component';
 import { NewSpeciesComponent } from './new-species.component';
+import { AgesPipe } from './ages.pipe';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { NewSpeciesComponent } from './new-species.component';
   declarations: [ AppComponent,
                   SpeciesListComponent,
                   EditSpeciesComponent,
-                  NewSpeciesComponent],
+                  NewSpeciesComponent,
+                  AgesPipe],
   bootstrap:    [ AppComponent ]
 })
 

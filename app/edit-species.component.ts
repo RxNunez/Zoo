@@ -6,12 +6,14 @@ import { Species } from './species.model';
   template: `
     <div>
       <div *ngIf="childSelectedSpecies">
-        <h3>{{childSelectedSpecies.description}}</h3>
+        <h3>Name: {{childSelectedSpecies.name}}, Age:  {{childSelectedSpecies.age}}</h3>
         <p>Species Complete? {{childSelectedSpecies.done}}</p>
         <hr>
         <h3>Edit Species</h3>
-        <label>Enter Species Description:</label>
-        <input [(ngModel)]="childSelectedSpecies.description">
+        <label>Enter Species Name:</label>
+        <input [(ngModel)]="childSelectedSpecies.name">
+        <label>Enter Species Age:</label>
+        <input [(ngModel)]="childSelectedSpecies.age">
         <label>Enter Species Caretakers (2-8):</label>
         <br>
         <input type="radio" [(ngModel)]="childSelectedSpecies.caretakers" [value]="2">1 (Two Caretakers)<br>
